@@ -1,0 +1,15 @@
+name: deploy test
+
+on:
+  push:
+    - master
+
+jobs:
+  build-app:
+    step:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: test
+        run: ls
