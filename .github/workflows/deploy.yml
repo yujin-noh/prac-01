@@ -10,6 +10,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
-      - name: test
-        run: ls
+          node-version: '16.x'
