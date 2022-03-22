@@ -1,9 +1,8 @@
 name: deploy test
-
-on:
+on: 
   push:
-    - master
-
+    branches:
+      - master 
 jobs:
   build-app:
     runs-on: ubuntu-latest
@@ -12,11 +11,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Check Node v
         run: node -v
-    # step:
-    #   - uses: actions/checkout@v2
-    #   - uses: actions/setup-node@v1
-    #     with:
-    #       node-version: '16.x'
     steps:
       - uses: D3rHase/ssh-command-action@{version}
         with:
