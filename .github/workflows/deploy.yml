@@ -14,4 +14,4 @@ jobs:
       #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       #     ssh-host: ${{ secrets.HOST }}
       - name: test
-        run: ls
+        run: ssh -A ${{secrets.USER}}@${{secrets.HOST}} && ll
