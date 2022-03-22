@@ -12,7 +12,9 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
-            ll
+            cd /tmp
+            ls -a
           host: ${{ secrets.HOST }}
           user: ${{secrets.USER}}
           key: ${{ secrets.PRIVATE_KEY}}
+          args:"-tt"
