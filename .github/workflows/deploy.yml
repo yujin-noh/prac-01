@@ -6,11 +6,18 @@ on:
 
 jobs:
   build-app:
-    step:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code. 
+        uses: actions/checkout@v2
+      - name: Check Node v
+        run: node -v
+    # step:
+    #   - uses: actions/checkout@v2
+    #   - uses: actions/setup-node@v1
+    #     with:
+    #       node-version: '16.x'
+    steps:
       - uses: D3rHase/ssh-command-action@{version}
         with:
           HOST: ${{secrets.HOST}}
