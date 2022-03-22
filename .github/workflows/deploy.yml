@@ -8,10 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: ssh
-      #   uses: kielabokkie/ssh-key-and-known-hosts-action@v1
-      #   with:
-      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     ssh-host: ${{ secrets.HOST }}
-      - name: test
-        run: ssh -A ${{secrets.USER}}@${{secrets.HOST}} && ll
+      - name: ls -a via ssh
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /tmp
+            ls -a
+          host: ${{ secrets.HOST }}
+          user: ${{secrets.USER}}
+          key: ${{ secrets.PRIVATE_KEY}}
