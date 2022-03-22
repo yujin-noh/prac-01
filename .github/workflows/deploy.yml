@@ -1,20 +1,24 @@
-name: deploy test
+name: test
 on:
   push:
     branches:
       - master
-jobs:
-  build-app:
-    runs-on: ubuntu-latest
 
+env:
+  FIRST_NAME: TEST
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: ls -a via ssh
+      - name: ls -a via OPEN SSH Private Key
         uses: fifsky/ssh-action@master
         with:
           command: |
             cd /tmp
             ls -a
+            echo "env_var:$FIRST_NAME"
+            exit 1
           host: ${{ secrets.HOST }}
           user: ${{secrets.USER}}
           key: ${{ secrets.PRIVATE_KEY}}
-          args:"-tt -vvv"
+          args: '-tt -vvv'
