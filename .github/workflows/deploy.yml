@@ -6,11 +6,6 @@ on:
 jobs:
   build-app:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code.
-        uses: actions/checkout@v2
-      - name: Check Node v
-        run: node -v
       uses: D3rHase/ssh-command-action@v0.2
         with:
           HOST: ${{secrets.HOST}}
