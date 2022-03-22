@@ -9,11 +9,8 @@ jobs:
 
     steps:
       - name: ssh command
-        uses: D3rHase/ssh-command-action@v0.2
-          with:
-            HOST: ${{secrets.HOST}}
-            USER: ${{secrets.USER}}
-            PRIVATE_SSH_KEY: ${{secrets.PRIVATE_SSH_KEY}}
-            COMMAND: ${{secrets.COMMAND}}
-      - name: command
+        uses: kielabokkie/ssh-key-and-known-hosts-action@v1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-host: ${{ secrets.HOST }}
         run: ll
