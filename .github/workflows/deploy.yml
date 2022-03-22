@@ -6,9 +6,14 @@ on:
 jobs:
   build-app:
     runs-on: ubuntu-latest
-      uses: D3rHase/ssh-command-action@v0.2
-        with:
-          HOST: ${{secrets.HOST}}
-          USER: ${{secrets.USER}}
-          PRIVATE_SSH_KEY: ${{secrets.PRIVATE_SSH_KEY}}
-          COMMAND: ${{secrets.COMMAND}}
+
+    steps:
+      - name: ssh command
+        uses: D3rHase/ssh-command-action@v0.2
+          with:
+            HOST: ${{secrets.HOST}}
+            USER: ${{secrets.USER}}
+            PRIVATE_SSH_KEY: ${{secrets.PRIVATE_SSH_KEY}}
+            COMMAND: ${{secrets.COMMAND}}
+      - name: command
+        run: ll
