@@ -13,5 +13,3 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh-host: ${{ secrets.HOST }}
-      - name: command
-          run: ll
