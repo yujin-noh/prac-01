@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ssh
-        uses: kielabokkie/ssh-key-and-known-hosts-action@v1
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-host: ${{ secrets.HOST }}
+      # - name: ssh
+      #   uses: kielabokkie/ssh-key-and-known-hosts-action@v1
+      #   with:
+      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     ssh-host: ${{ secrets.HOST }}
+      - name: test
+        rum: ls
